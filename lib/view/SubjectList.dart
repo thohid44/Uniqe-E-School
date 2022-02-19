@@ -22,14 +22,22 @@ class SubjectList extends StatelessWidget {
             return GestureDetector(
               onTap: () {
                 Get.to(CourseList(),
-                    arguments: subController.subjectList[index]);
+                    arguments: subController.subjectList[index].id.toString());
               },
               child: Card(
                 child: Container(
                   height: 60,
-                  child: Text(
-                    subController.subjectList[index].subject.toString(),
-                    style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
+                  child: ListTile(
+                    subtitle: Text(
+                      subController.subjectList[index].id.toString(),
+                      style:
+                          TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                    ),
+                    title: Text(
+                      subController.subjectList[index].subject.toString(),
+                      style:
+                          TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
+                    ),
                   ),
                 ),
               ),

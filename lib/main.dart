@@ -1,6 +1,9 @@
 import 'dart:io';
 
 import 'package:e_unique_school/auth/Login.dart';
+import 'package:e_unique_school/view/Lessonview.dart';
+import 'package:e_unique_school/view/UserBuyCourseView.dart';
+import 'package:e_unique_school/view/ebook/BuyBookView.dart';
 import 'package:e_unique_school/view/ebook/ebook_home.dart';
 import 'package:e_unique_school/view/homepage.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +25,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Login(),
+      home: HomePage(),
     );
   }
 }

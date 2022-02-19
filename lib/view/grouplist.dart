@@ -4,11 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class GroupListPage extends StatelessWidget {
+  final GroupController groupcontroller = Get.put(GroupController());
+
   @override
   Widget build(BuildContext context) {
     var dataIndex = Get.arguments;
-    var groupcontroller = Get.put(GroupController());
-    groupcontroller.fetchCourse(dataIndex);
+    groupcontroller.fetchGroup(dataIndex);
     // print(groupcontroller.courseTypeList.length);
     return SafeArea(
       child: Scaffold(

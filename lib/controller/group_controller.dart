@@ -22,7 +22,8 @@ class GroupController extends GetxController {
   }
 
   var client = http.Client();
-  Future<List<GroupModel>> fetchCourse(rec) async {
+  Future<List<GroupModel>> fetchGroup(rec) async {
+    groupList.clear();
     var response = await client.get(Uri.https(url, 'group/$rec'));
 
     var data = jsonDecode(response.body.toString());

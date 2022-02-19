@@ -1,18 +1,24 @@
 import 'package:e_unique_school/controller/CourseListController.dart';
+import 'package:e_unique_school/view/Lessonview.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'CourseCartPage.dart';
+
 class CourseList extends StatelessWidget {
-  var courseId = Get.arguments;
+  // Arguments from Subject List
 
   @override
   Widget build(BuildContext context) {
+    var courseId = Get.arguments;
+
+    print("Course Id ${courseId}");
     final allCourse = Get.put(CourseListController());
     allCourse.fetchCourseList(courseId);
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: const Text("Course Content"),
+          title: const Text("Full Course"),
           centerTitle: true,
         ),
         body: Obx(
@@ -23,22 +29,26 @@ class CourseList extends StatelessWidget {
                 crossAxisSpacing: 10,
               ),
               itemCount: allCourse.courseList.length,
-              itemBuilder: (BuildContext context, index) {
-                return Card(
-                  elevation: 5,
-                  color: Colors.deepPurple,
-                  child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 10),
-                    alignment: Alignment.center,
-                    child: Text(
-                      allCourse.courseList[index].course_name!,
-                      style: TextStyle(
-                          fontSize: 25,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    decoration: BoxDecoration(),
-                  ),
+              itemBuilder: (context, index) {
+                return Container(
+                  alignment: Alignment.center,
+                  color: Colors.amber,
+                  padding: EdgeInsets.all(10.0),
+                  child: GestureDetector(
+                      onTap: () {
+                        Get.to(LessonView());
+                      },
+                      // onTap: () {
+                      //   var courseId = allCourse.courseList[index].id;
+                      //   var coursePrice =
+                      //       allCourse.courseList[index].selling_price;
+
+                      //   Get.to(CourseCartPage(),
+                      //       arguments: [courseId, coursePrice]);
+                      // },
+                      child: ListTile(
+                          title:
+                              Text(allCourse.courseList[index].course_name!))),
                 );
               }),
         ),

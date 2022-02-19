@@ -10,6 +10,8 @@ class SubjectController extends GetxController {
   var subjectBaseUrl = "app.chadahatti.org";
 
   Future<List<SubjectModel>> fetchSubject(id) async {
+    subjectList.clear();
+
     var response =
         await subjectClient.get(Uri.https(subjectBaseUrl, 'subject/$id'));
 

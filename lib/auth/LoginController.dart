@@ -1,9 +1,11 @@
 import 'dart:convert';
+import 'package:e_unique_school/auth/UserDeshBoard.dart';
 import 'package:e_unique_school/view/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'CustomService.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginController extends GetxController {
   singIn(String email, String password) async {
@@ -11,6 +13,7 @@ class LoginController extends GetxController {
     // // print(stdpass);
 
     // Future<void> sendUserDataToServer() async {
+
     Map<String, dynamic> dataBody = {
       CustomWebServices.std_email: email,
       CustomWebServices.std_pass: password
@@ -22,12 +25,20 @@ class LoginController extends GetxController {
 
     var response = await http.post(Uri.parse(CustomWebServices.signin_api_url),
         body: dataToSend);
-    print(response.body);
     if (response.statusCode == 200) {
       Map<String, dynamic> resData = jsonDecode(response.body);
-      if (resData['status'] == 'true') {
-      } else {
+      print(resData['student_id']);
+      if (resData['status'] == true) {
+        SharedPreferences sharedPreferences =
+            await SharedPreferences.getInstance();
+        Map<String, dynamic> userdata = {
+          "studentId": resData['student_id'].toString(),
+        };
+        sharedPreferences.setString("sharedata", json.encode(userdata));
+
         Get.to(HomePage());
+      } else {
+        Get.snackbar("Message", "Email id not match");
       }
     } else {
       Get.snackbar(
