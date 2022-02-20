@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:e_unique_school/auth/Login.dart';
+import 'package:e_unique_school/auth/UserDeshBoard.dart';
 import 'package:e_unique_school/view/Lessonview.dart';
 import 'package:e_unique_school/view/UserBuyCourseView.dart';
 import 'package:e_unique_school/view/ebook/BuyBookView.dart';
@@ -9,6 +10,8 @@ import 'package:e_unique_school/view/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+
+import 'view/userDeshboard/UserDeshboardView.dart';
 
 void main() {
   runApp(MyApp());
@@ -25,7 +28,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomePage(),
+      home: UserDeshBoardView(),
     );
   }
 }
@@ -53,7 +56,7 @@ class OnScreenPage extends StatelessWidget {
           title: 'Learn Coding online',
           body: 'Subscribe to Divine Coding to learn coding',
           footer: Text("@Codex Coding"),
-          decoration: PageDecoration(
+          decoration: const PageDecoration(
             pageColor: Colors.cyan,
           )),
       PageViewModel(
