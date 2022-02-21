@@ -4,6 +4,8 @@ import 'package:e_unique_school/view/grouplist.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'maindrawer.dart';
+
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -13,6 +15,7 @@ class HomePage extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: const Text("Unique-E-School"),
+          centerTitle: true,
           actions: [
             GestureDetector(
               onTap: () {
@@ -23,6 +26,7 @@ class HomePage extends StatelessWidget {
             )
           ],
         ),
+        drawer: MainDrawer(),
         body: Obx(
           () => ListView.builder(
             itemCount: con.courseTypeList.length,

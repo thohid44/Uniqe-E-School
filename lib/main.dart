@@ -1,11 +1,6 @@
 import 'dart:io';
 
 import 'package:e_unique_school/auth/Login.dart';
-import 'package:e_unique_school/auth/UserDeshBoard.dart';
-import 'package:e_unique_school/view/Lessonview.dart';
-import 'package:e_unique_school/view/UserBuyCourseView.dart';
-import 'package:e_unique_school/view/ebook/BuyBookView.dart';
-import 'package:e_unique_school/view/ebook/ebook_home.dart';
 import 'package:e_unique_school/view/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -24,11 +19,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Unique E School',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: UserDeshBoardView(),
+      home: Login(),
     );
   }
 }

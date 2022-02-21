@@ -43,6 +43,11 @@ class GroupListPage extends StatelessWidget {
                       style:
                           TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
                     ),
+                    subtitle: Text(
+                      groupcontroller.groupList[index].id,
+                      style:
+                          TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
+                    ),
                   ),
                 ),
               );

@@ -1,4 +1,5 @@
 import 'package:e_unique_school/controller/User_Ebook_Controller.dart';
+import 'package:e_unique_school/view/ebook/ReadBook.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -15,12 +16,22 @@ class BuyBookView extends StatelessWidget {
         () => ListView.builder(
             itemCount: bookController.ebookList.length,
             itemBuilder: (context, index) {
-              return ListTile(
-                title: Text(
-                  bookController.ebookList[index].title,
-                  style: const TextStyle(
-                      fontSize: 22, fontWeight: FontWeight.bold),
-                ),
+              return GestureDetector(
+                onTap: () {
+                  Get.to(ReadBook(),
+                      arguments: bookController.ebookList[index].orderReadBook);
+                },
+                child: Container(
+                    padding: EdgeInsets.all(12),
+                    margin: EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                        color: Colors.amber,
+                        borderRadius: BorderRadius.circular(12)),
+                    child: Text(
+                      bookController.ebookList[index].title,
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+                    )),
               );
             }),
       ),

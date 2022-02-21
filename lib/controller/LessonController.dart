@@ -6,18 +6,17 @@ import 'package:http/http.dart' as http;
 class LessonController extends GetxController {
   var isLessonLoadingComplete = false.obs;
   var clientLesson = http.Client();
-  String lesson_api_url = "app.chadahatti.org";
-  String lest = "lesson/1";
+  var lesson_api_url = "app.chadahatti.org";
   List<LessonModel> lessons = <LessonModel>[].obs;
 
   void onInit() {
-    fetchLesson();
+    lessons.clear();
     super.onInit();
   }
 
-  Future<List<LessonModel>> fetchLesson() async {
+  Future<List<LessonModel>> fetchLesson(id) async {
     var responseLesson =
-        await clientLesson.get(Uri.https(lesson_api_url, lest));
+        await clientLesson.get(Uri.https(lesson_api_url, "lesson/$id"));
     var data = jsonDecode(responseLesson.body);
 
     if (responseLesson.statusCode == 200) {

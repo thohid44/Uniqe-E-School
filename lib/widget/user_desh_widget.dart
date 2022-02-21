@@ -2,38 +2,43 @@ import 'package:flutter/material.dart';
 
 class UserDeshWidget extends StatelessWidget {
   final String title;
-
-  const UserDeshWidget({Key? key, required this.title}) : super(key: key);
+  final int quantity;
+  UserDeshWidget({required this.title, required this.quantity});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(top: 12),
+      alignment: Alignment.center,
+      padding: EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(
-          color: Colors.purple, borderRadius: BorderRadius.circular(30)),
+          border: Border.all(width: 2, color: Colors.purple),
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(30)),
       child: Column(
         children: [
-          const CircleAvatar(
-            backgroundColor: Colors.deepPurple,
-            radius: 50,
+          CircleAvatar(
+            backgroundColor: Colors.white,
+            radius: 40,
             child: Text(
-              "2",
-              style: TextStyle(
-                  fontWeight: FontWeight.w500,
+              quantity.toString(),
+              style: const TextStyle(
+                  fontWeight: FontWeight.w700,
                   fontSize: 32,
-                  color: Colors.white),
+                  color: Colors.deepPurple),
             ),
           ),
           const SizedBox(
-            height: 10,
+            height: 14,
           ),
           Container(
+            alignment: Alignment.topCenter,
+            padding: EdgeInsets.symmetric(horizontal: 10),
             child: Text(
               title,
               style: const TextStyle(
                   fontWeight: FontWeight.w500,
-                  fontSize: 20,
-                  color: Colors.white),
+                  fontSize: 18,
+                  color: Colors.deepPurple),
             ),
           ),
         ],

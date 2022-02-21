@@ -3,8 +3,6 @@ import 'package:e_unique_school/view/Lessonview.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'CourseCartPage.dart';
-
 class CourseList extends StatelessWidget {
   // Arguments from Subject List
 
@@ -12,7 +10,7 @@ class CourseList extends StatelessWidget {
   Widget build(BuildContext context) {
     var courseId = Get.arguments;
 
-    print("Course Id ${courseId}");
+    print("Subject Id as Course Id  ${courseId}");
     final allCourse = Get.put(CourseListController());
     allCourse.fetchCourseList(courseId);
     return SafeArea(
@@ -35,9 +33,11 @@ class CourseList extends StatelessWidget {
                   color: Colors.amber,
                   padding: EdgeInsets.all(10.0),
                   child: GestureDetector(
-                      onTap: () {
-                        Get.to(LessonView());
-                      },
+                      // onTap: () {
+                      //   Get.to(LessonView(),
+                      //       arguments:
+                      //           allCourse.courseList[index].id.toString());
+                      // },
                       // onTap: () {
                       //   var courseId = allCourse.courseList[index].id;
                       //   var coursePrice =

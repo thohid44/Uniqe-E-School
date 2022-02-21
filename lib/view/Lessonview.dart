@@ -5,9 +5,15 @@ import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class LessonView extends StatelessWidget {
   LessonView({Key? key}) : super(key: key);
-  final LessonController lesControoler = Get.put(LessonController());
+  // The lesson Id come from Course List that means it's a course Id
+
   @override
   Widget build(BuildContext context) {
+    var lesControoler = Get.put(LessonController());
+
+    var lessonId = Get.arguments;
+
+    lesControoler.fetchLesson(lessonId);
     print(lesControoler.lessons.length);
     return Scaffold(
       appBar: AppBar(

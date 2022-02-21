@@ -7,7 +7,7 @@ class SubjectList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var groupId = Get.arguments;
-
+    print("Group id as Subjet Id ${groupId}");
     var subController = Get.put(SubjectController());
     subController.fetchSubject(groupId);
     return SafeArea(
