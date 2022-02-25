@@ -13,33 +13,6 @@ class EbookController extends GetxController {
       "img":
           "https://1.bp.blogspot.com/-GzyXtAWGohc/YIZXKd677gI/AAAAAAAABp4/odv9oe3is4YvJoyVFPuf5iZE7gkoA6wNgCLcBGAsYHQ/s1280/20210426_115845.jpg"
     },
-    {
-      "id": 2,
-      "name": "E-Book",
-      "price": 200,
-      "des":
-          "The Most Relevant information. 100% Privacy Protected! Find what you are looking for Here. 99% Match on Your Search Query. Only relevant search results, Click here and Find. Discover us now! Easy Acces To Information. Simple in use. Multiple sources combined.",
-      "img":
-          "https://1.bp.blogspot.com/-GzyXtAWGohc/YIZXKd677gI/AAAAAAAABp4/odv9oe3is4YvJoyVFPuf5iZE7gkoA6wNgCLcBGAsYHQ/s1280/20210426_115845.jpg"
-    },
-    {
-      "id": 3,
-      "name": "E-Book",
-      "price": 200,
-      "des":
-          "The Most Relevant information. 100% Privacy Protected! Find what you are looking for Here. 99% Match on Your Search Query. Only relevant search results, Click here and Find. Discover us now! Easy Acces To Information. Simple in use. Multiple sources combined.",
-      "img":
-          "https://1.bp.blogspot.com/-GzyXtAWGohc/YIZXKd677gI/AAAAAAAABp4/odv9oe3is4YvJoyVFPuf5iZE7gkoA6wNgCLcBGAsYHQ/s1280/20210426_115845.jpg",
-    },
-    {
-      "id": 4,
-      "name": "E-Book",
-      "price": 200,
-      "des":
-          "The Most Relevant information. 100% Privacy Protected! Find what you are looking for Here. 99% Match on Your Search Query. Only relevant search results, Click here and Find. Discover us now! Easy Acces To Information. Simple in use. Multiple sources combined.",
-      "img":
-          "https://1.bp.blogspot.com/-GzyXtAWGohc/YIZXKd677gI/AAAAAAAABp4/odv9oe3is4YvJoyVFPuf5iZE7gkoA6wNgCLcBGAsYHQ/s1280/20210426_115845.jpg"
-    }
   ].obs;
 
   var _products = {}.obs;

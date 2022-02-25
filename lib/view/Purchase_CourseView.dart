@@ -9,7 +9,6 @@ class PurchaseCourseView extends StatelessWidget {
     var stdId = Get.arguments;
     print(stdId);
     var userCourse = Get.put(PurchaseCourseController());
-    var userID = 2;
     userCourse.fetchPurchaseCourse(stdId);
     return Scaffold(
       appBar: AppBar(

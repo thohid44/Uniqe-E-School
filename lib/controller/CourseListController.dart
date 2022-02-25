@@ -14,7 +14,7 @@ class CourseListController extends GetxController {
   String transactionid = '';
 
   var isCourseListLoadingCompleted = false.obs;
-  var coursebaseUrl = "app.chadahatti.org";
+  var coursebaseUrl = "uniqueeschool.com";
   List<CourseListModel> courseList = <CourseListModel>[].obs;
 
   var courseClient = http.Client();
@@ -78,7 +78,7 @@ class CourseListController extends GetxController {
     Get.snackbar(
       "Buy Course",
       "Success",
-      duration: Duration(seconds: 10),
+      duration: Duration(seconds: 2),
       backgroundColor: Colors.black,
       colorText: Colors.white,
     );

@@ -22,8 +22,8 @@ class CourseTypeController extends GetxController {
 
   var clients = http.Client();
   Future<List<CourseTypeModel>> fetchCourseType() async {
-    var respon = await clients
-        .get(Uri.parse("http://app.chadahatti.org/course_types/1"));
+    var respon =
+        await clients.get(Uri.parse("http://uniqueeschool.com/course_types/1"));
     var data = jsonDecode(respon.body.toString());
 
     if (respon.statusCode == 200) {

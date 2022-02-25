@@ -15,7 +15,7 @@ class Login extends StatelessWidget {
       child: Scaffold(
         body: Form(
           key: _logKey,
-          child: Column(
+          child: ListView(
             children: [
               Container(
                 height: MediaQuery.of(context).size.height * 0.3,
@@ -40,7 +40,7 @@ class Login extends StatelessWidget {
                         controller: email,
                         userErrorText: "E-mail is required!",
                         hint: "Enter Email",
-                        icon: Icon(Icons.mail)),
+                        icon: Icon(Icons.mail, color: Colors.purple)),
                     const SizedBox(
                       height: 10,
                     ),
@@ -48,29 +48,44 @@ class Login extends StatelessWidget {
                         controller: password,
                         userErrorText: "Password is required!",
                         hint: "Enter Password",
-                        icon: Icon(Icons.vpn_key)),
+                        icon: Icon(Icons.vpn_key, color: Colors.purple)),
                     const SizedBox(
-                      height: 10,
+                      height: 20,
                     ),
                     Container(
+                      height: 55,
                       width: MediaQuery.of(context).size.width * 0.8,
                       child: ElevatedButton(
-                          onPressed: () {
-                            login();
-                          },
-                          child: const Text(
-                            "LogIn",
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          )),
+                        onPressed: () {
+                          login();
+                        },
+                        child: const Text(
+                          "LogIn",
+                          style: TextStyle(
+                            fontSize: 24,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.purple,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 15,
                     ),
                     GestureDetector(
                       onTap: () {
                         Get.to(Registration());
                       },
-                      child: Text("Registration"),
+                      child: const Text(
+                        "Have you no account? Registration",
+                        style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     )
                   ],
                 ),

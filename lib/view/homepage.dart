@@ -1,4 +1,3 @@
-import 'package:e_unique_school/auth/UserDeshBoard.dart';
 import 'package:e_unique_school/controller/course_type_controller.dart';
 import 'package:e_unique_school/view/grouplist.dart';
 import 'package:flutter/material.dart';
@@ -16,15 +15,7 @@ class HomePage extends StatelessWidget {
         appBar: AppBar(
           title: const Text("Unique-E-School"),
           centerTitle: true,
-          actions: [
-            GestureDetector(
-              onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (_) => UserDeshBoard()));
-              },
-              child: Icon(Icons.person),
-            )
-          ],
+          actions: [],
         ),
         drawer: MainDrawer(),
         body: Obx(
@@ -57,7 +48,6 @@ class HomePage extends StatelessWidget {
             icon: IconButton(
                 onPressed: () {
                   print("Home");
-                  Get.to(UserDeshBoard());
                 },
                 icon: Icon(Icons.home_max_outlined)),
             label: "Home",

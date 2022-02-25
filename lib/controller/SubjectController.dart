@@ -7,7 +7,7 @@ class SubjectController extends GetxController {
   List<SubjectModel> subjectList = <SubjectModel>[].obs;
 
   var subjectClient = http.Client();
-  var subjectBaseUrl = "app.chadahatti.org";
+  var subjectBaseUrl = "uniqueeschool.com";
 
   Future<List<SubjectModel>> fetchSubject(id) async {
     subjectList.clear();

@@ -8,11 +8,11 @@ class PurchaseCourseController extends GetxController {
   List<CoursePurchaseModel> purchase_courses_list = <CoursePurchaseModel>[].obs;
 
   var isCourseListLoadingCompleted = false.obs;
-  var coursebaseUrl = "app.chadahatti.org";
+  var coursebaseUrl = "uniqueeschool.com";
   var purchase_Client = http.Client();
 
   void onInit() {
-    purchase_courses_list.clear();
+    purchase_courses_list;
     super.onInit();
   }
 

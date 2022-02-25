@@ -6,7 +6,7 @@ import 'package:http/http.dart' as http;
 class LessonController extends GetxController {
   var isLessonLoadingComplete = false.obs;
   var clientLesson = http.Client();
-  var lesson_api_url = "app.chadahatti.org";
+  var lesson_api_url = "uniqueeschool.com";
   List<LessonModel> lessons = <LessonModel>[].obs;
 
   void onInit() {

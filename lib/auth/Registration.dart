@@ -15,7 +15,7 @@ class Registration extends StatelessWidget {
       child: Scaffold(
         body: Form(
           key: _regKey,
-          child: Column(
+          child: ListView(
             children: [
               Container(
                 height: MediaQuery.of(context).size.height * 0.3,
@@ -40,39 +40,59 @@ class Registration extends StatelessWidget {
                         controller: name,
                         userErrorText: "Name is required!",
                         hint: "Enter Name",
-                        icon: Icon(Icons.mail)),
+                        icon: Icon(
+                          Icons.person_add_alt_1_outlined,
+                          color: Colors.purple,
+                        )),
                     const SizedBox(
                       height: 10,
                     ),
+                    const SizedBox(height: 10),
                     _textinput(
                         controller: email,
                         userErrorText: "E-mail is required!",
                         hint: "Enter Email",
-                        icon: Icon(Icons.mail)),
+                        icon: Icon(
+                          Icons.mail,
+                          color: Colors.purple,
+                        )),
                     const SizedBox(
                       height: 10,
                     ),
+                    const SizedBox(height: 10),
                     _textinput(
                         controller: password,
                         userErrorText: "Password is required!",
                         hint: "Enter Password",
-                        icon: Icon(Icons.vpn_key)),
+                        icon: Icon(
+                          Icons.vpn_key,
+                          color: Colors.purple,
+                        )),
                     const SizedBox(
                       height: 10,
                     ),
+                    const SizedBox(height: 20),
                     Container(
+                      height: 55,
                       width: MediaQuery.of(context).size.width * 0.8,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
                       child: ElevatedButton(
-                          onPressed: () {
-                            signUp();
-                          },
-                          child: const Text(
-                            "Registration",
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          )),
+                        onPressed: () {
+                          signUp();
+                        },
+                        child: const Text(
+                          "Registration",
+                          style: TextStyle(
+                            fontSize: 22,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        style: ElevatedButton.styleFrom(
+                            primary: Colors.deepPurple),
+                      ),
                     ),
                   ],
                 ),
@@ -99,7 +119,7 @@ Widget _textinput({controller, hint, icon, userErrorText}) {
     margin: const EdgeInsets.symmetric(horizontal: 10),
     decoration: const BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.all(Radius.circular(20))),
+        borderRadius: BorderRadius.all(Radius.circular(30))),
     child: TextFormField(
       validator: (value) {
         if (value!.isEmpty) {

@@ -7,10 +7,11 @@ import 'package:http/http.dart' as http;
 class GroupController extends GetxController {
   List<GroupModel> groupList = <GroupModel>[].obs;
   var isDataLoadingCompleted = false.obs;
-  var url = "app.chadahatti.org";
+  var url = "uniqueeschool.com";
 
   @override
   void onInit() {
+    groupList;
     super.onInit();
   }
 

@@ -1,4 +1,5 @@
 import 'package:e_unique_school/controller/CourseListController.dart';
+import 'package:e_unique_school/view/CourseCartPage.dart';
 import 'package:e_unique_school/view/Lessonview.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -38,14 +39,16 @@ class CourseList extends StatelessWidget {
                       //       arguments:
                       //           allCourse.courseList[index].id.toString());
                       // },
-                      // onTap: () {
-                      //   var courseId = allCourse.courseList[index].id;
-                      //   var coursePrice =
-                      //       allCourse.courseList[index].selling_price;
+                      onTap: () {
+                        var courseId =
+                            allCourse.courseList[index].id.toString();
+                        var coursePrice = allCourse
+                            .courseList[index].selling_price
+                            .toString();
 
-                      //   Get.to(CourseCartPage(),
-                      //       arguments: [courseId, coursePrice]);
-                      // },
+                        Get.to(CourseCartPage(),
+                            arguments: [courseId, coursePrice]);
+                      },
                       child: ListTile(
                           title:
                               Text(allCourse.courseList[index].course_name!))),

@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class GroupListPage extends StatelessWidget {
-  final GroupController groupcontroller = Get.put(GroupController());
-
   @override
   Widget build(BuildContext context) {
+    final groupcontroller = Get.put(GroupController());
+
     var dataIndex = Get.arguments;
     groupcontroller.fetchGroup(dataIndex);
     // print(groupcontroller.courseTypeList.length);

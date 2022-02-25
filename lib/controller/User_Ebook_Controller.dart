@@ -6,7 +6,7 @@ import 'package:http/http.dart' as http;
 
 class UserEbookController extends GetxController {
   var isEbookComplete = false.obs;
-  var eBookbuyUrl = "app.chadahatti.org";
+  var eBookbuyUrl = "uniqueeschool.com";
   List<UserEbookModel> ebookList = <UserEbookModel>[].obs;
 
   var buyCourse = http.Client();

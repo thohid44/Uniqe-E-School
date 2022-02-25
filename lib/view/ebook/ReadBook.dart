@@ -13,13 +13,12 @@ class _ReadBookState extends State<ReadBook> {
   @override
   Widget build(BuildContext context) {
     var book = Get.arguments;
-    print(book);
     return Scaffold(
         appBar: AppBar(
           title: const Text("Read Book"),
         ),
         body: SfPdfViewer.network(
-          book,
+          "https://uniqueeschool.com/images/books/$book",
           key: _pdfViewerKey,
         ));
   }
