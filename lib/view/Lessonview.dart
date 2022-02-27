@@ -15,31 +15,30 @@ class LessonView extends StatelessWidget {
 
     lesControoler.fetchLesson(lessonId);
     print(lesControoler.lessons.length);
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Video Lesson"),
-        centerTitle: true,
-      ),
-      body: Obx(
-        () => ListView.builder(
-            itemCount: lesControoler.lessons.length,
-            itemBuilder: (context, index) {
-              return YoutubePlayer(
-                key: ObjectKey(lesControoler.lessons[index].videoUrl),
-                controller: YoutubePlayerController(
-                    initialVideoId: lesControoler.lessons[index].videoUrl,
-                    flags: const YoutubePlayerFlags(autoPlay: false)),
-                actionsPadding: const EdgeInsets.only(left: 16.0),
-                bottomActions: [
-                  CurrentPosition(),
-                  const SizedBox(width: 10.0),
-                  ProgressBar(isExpanded: true),
-                  const SizedBox(width: 10.0),
-                  RemainingDuration(),
-                  FullScreenButton(),
-                ],
-              );
-            }),
+    return SafeArea(
+      child: Scaffold(
+        body: Obx(
+          () => ListView.builder(
+              itemCount: lesControoler.lessons.length,
+              itemBuilder: (context, index) {
+                return YoutubePlayer(
+                  key: ObjectKey(lesControoler.lessons[index].videoUrl),
+                  controller: YoutubePlayerController(
+                      initialVideoId: lesControoler.lessons[index].videoUrl,
+                      flags: const YoutubePlayerFlags(autoPlay: false)),
+                  actionsPadding: const EdgeInsets.only(left: 16.0),
+                  bottomActions: [
+                    CurrentPosition(),
+                    const SizedBox(width: 10.0),
+                    ProgressBar(isExpanded: true),
+                    const SizedBox(width: 10.0),
+                    RemainingDuration(),
+                    FullScreenButton(),
+                  ],
+                  showVideoProgressIndicator: true,
+                );
+              }),
+        ),
       ),
     );
   }

@@ -1,6 +1,6 @@
 import 'package:e_unique_school/controller/ebook_controller.dart';
 import 'package:e_unique_school/view/ebook/buyebook.dart';
-import 'package:e_unique_school/view/ebook/confirmbuy.dart';
+import 'package:e_unique_school/view/ebook/BookCartPage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -9,7 +9,8 @@ class EbookDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     var sendBuyBook = Get.put(EbookController());
     var recieveEbook = Get.arguments;
-
+    var price = recieveEbook[0][0];
+    var name = recieveEbook[0][1];
     print(recieveEbook);
     return Scaffold(
         appBar: AppBar(
@@ -22,9 +23,7 @@ class EbookDetails extends StatelessWidget {
           centerTitle: true,
           actions: [
             IconButton(
-                onPressed: () {
-                  Get.to(BuyBookList());
-                },
+                onPressed: () {},
                 icon: const Icon(
                   Icons.shopping_cart,
                   size: 35,
@@ -35,15 +34,12 @@ class EbookDetails extends StatelessWidget {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              Container(
-                child: Image.network(recieveEbook['img']),
-              ),
               const SizedBox(
                 height: 15,
               ),
               Container(
                 child: Text(
-                  recieveEbook['des'].toString(),
+                  price,
                   style: const TextStyle(
                       fontSize: 19,
                       fontWeight: FontWeight.w500,
@@ -55,7 +51,7 @@ class EbookDetails extends StatelessWidget {
               ),
               Container(
                   child: Text(
-                "Price : ${recieveEbook['price'].toString()}",
+                name.toString(),
                 style: const TextStyle(
                   fontSize: 23,
                   fontWeight: FontWeight.bold,
@@ -66,8 +62,7 @@ class EbookDetails extends StatelessWidget {
                 padding: const EdgeInsets.fromLTRB(10, 10, 10, 34),
                 child: ElevatedButton.icon(
                     onPressed: () {
-                      Get.to(ConfirmBuy(), arguments: recieveEbook);
-                      // sendBuyBook.addProduct(recieveEbook);
+//Get.to(BookCartPage(), arguments: recieveEbook);
                     },
                     icon: const Icon(Icons.shopping_cart_checkout_outlined),
                     label: const Text(

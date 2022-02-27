@@ -26,7 +26,6 @@ class SubjectList extends StatelessWidget {
               },
               child: Card(
                 child: Container(
-                  height: 60,
                   child: ListTile(
                     subtitle: Text(
                       subController.subjectList[index].id.toString(),

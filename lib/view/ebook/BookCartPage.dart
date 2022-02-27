@@ -2,16 +2,17 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:e_unique_school/controller/ebook_controller.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../controller/CourseListController.dart';
+class BookCartPage extends StatefulWidget {
+  const BookCartPage({Key? key}) : super(key: key);
 
-class CourseCartPage extends StatefulWidget {
   @override
-  State<CourseCartPage> createState() => _CourseCartPageState();
+  _BookCartPageState createState() => _BookCartPageState();
 }
 
-class _CourseCartPageState extends State<CourseCartPage> {
+class _BookCartPageState extends State<BookCartPage> {
   final GlobalKey<FormState> _key = GlobalKey();
 
   TextEditingController username = TextEditingController();
@@ -39,15 +40,15 @@ class _CourseCartPageState extends State<CourseCartPage> {
   Widget build(BuildContext context) {
     var data = Get.arguments;
 
-    var id = data[0];
-    var price = data[1];
+    var id = data['id'];
+    var price = data['price'];
     print(id);
     print(price);
 
-    final CourseListController courseController = Get.find();
+    final EbookController bookController = Get.find();
 
     return Scaffold(
-      appBar: AppBar(title: const Text("Course Buy Page")),
+      appBar: AppBar(title: const Text("Book Buy Page")),
       body: Form(
           key: _key,
           child: Padding(
@@ -108,7 +109,7 @@ class _CourseCartPageState extends State<CourseCartPage> {
                         borderRadius: BorderRadius.circular(30)),
                     child: ElevatedButton(
                         onPressed: () {
-                          courseController.cartCourse(
+                          bookController.cartBook(
                               userId.toString(),
                               username.text,
                               price,
