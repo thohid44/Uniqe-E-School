@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:e_unique_school/auth/Login.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
@@ -7,12 +8,12 @@ import 'CustomService.dart';
 
 class RegistrationController extends GetxController {
   String stdname = "";
-  String stdemail = "";
+  String stdmobile = "";
   String stdpass = "";
-  signUpUser(String name, String email, String password) async {
+  signUpUser(String name, String mobile, String password) async {
     stdname = name;
 
-    stdemail = email;
+    stdmobile = mobile;
     stdpass = password;
 
     // print(stdemail);
@@ -21,7 +22,7 @@ class RegistrationController extends GetxController {
     // Future<void> sendUserDataToServer() async {
     Map<String, dynamic> dataBody = {
       CustomWebServices.std_name: stdname,
-      CustomWebServices.std_email: stdemail,
+      CustomWebServices.std_mobile: stdmobile,
       CustomWebServices.std_pass: stdpass
     };
 
@@ -31,7 +32,12 @@ class RegistrationController extends GetxController {
 
     var response = await http.post(Uri.parse(CustomWebServices.signup_api_url),
         body: dataToSend);
-
-    print(response.body);
+    Get.snackbar(
+      "Done",
+      "Successfully Registered",
+      snackPosition: SnackPosition.TOP,
+      showProgressIndicator: true,
+    );
+    Get.to(Login());
   }
 }

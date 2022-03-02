@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:e_unique_school/auth/CustomService.dart';
+import 'package:e_unique_school/view/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
@@ -29,6 +30,8 @@ class CourseListController extends GetxController {
   }
 
   Future<List<CourseListModel>> fetchCourseList(id) async {
+    courseList.clear();
+
     var response =
         await courseClient.get(Uri.https(coursebaseUrl, 'course/$id'));
     var courseListData = jsonDecode(response.body.toString());
@@ -82,6 +85,7 @@ class CourseListController extends GetxController {
       backgroundColor: Colors.black,
       colorText: Colors.white,
     );
+    Get.to(HomePage());
   }
 }
 

@@ -2,6 +2,7 @@ import 'package:e_unique_school/controller/group_controller.dart';
 import 'package:e_unique_school/view/SubjectList.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class GroupListPage extends StatelessWidget {
   @override
@@ -20,38 +21,39 @@ class GroupListPage extends StatelessWidget {
                 icon: Icon(Icons.arrow_back_ios_new),
                 onPressed: () => Get.back())),
         body: Obx(
-          () => ListView.builder(
-            shrinkWrap: true,
-            itemCount: groupcontroller.groupList.length,
-            itemBuilder: (context, index) {
-              if (ConnectionState.done == ConnectionState.waiting) {
-                return Center(
-                    child: CircularProgressIndicator(
-                  color: Colors.red,
-                ));
-              }
+          () => Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            child: ListView.builder(
+              shrinkWrap: true,
+              itemCount: groupcontroller.groupList.length,
+              itemBuilder: (context, index) {
+                if (ConnectionState.done == ConnectionState.waiting) {
+                  return Center(
+                      child: CircularProgressIndicator(
+                    color: Colors.red,
+                  ));
+                }
 
-              return GestureDetector(
-                onTap: () {
-                  Get.to(SubjectList(),
-                      arguments: groupcontroller.groupList[index].id);
-                },
-                child: Card(
-                  child: ListTile(
-                    title: Text(
-                      groupcontroller.groupList[index].group,
-                      style:
-                          TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
-                    ),
-                    subtitle: Text(
-                      groupcontroller.groupList[index].id,
-                      style:
-                          TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                ),
-              );
-            },
+                return GestureDetector(
+                  onTap: () {
+                    Get.to(SubjectList(),
+                        arguments: groupcontroller.groupList[index].id);
+                  },
+                  child: Card(
+                      elevation: 5,
+                      child: Container(
+                        height: MediaQuery.of(context).size.height * .1,
+                        child: Center(
+                          child: Text(
+                            groupcontroller.groupList[index].group,
+                            style: GoogleFonts.pacifico(
+                                fontSize: 18, fontWeight: FontWeight.w500),
+                          ),
+                        ),
+                      )),
+                );
+              },
+            ),
           ),
         ),
       ),

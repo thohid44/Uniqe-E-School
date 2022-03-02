@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:e_unique_school/auth/Login.dart';
+import 'package:e_unique_school/view/ebook/ebook_details.dart';
 import 'package:e_unique_school/view/ebook/ebook_home.dart';
 import 'package:e_unique_school/view/homepage.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomePage(),
+      home: OnScreenPage(),
     );
   }
 }
@@ -42,14 +43,14 @@ class OnScreenPage extends StatelessWidget {
   List<PageViewModel> getPages() {
     return [
       PageViewModel(
-          image: Image.network("https://domaine.com/image.png", height: 175.0),
-          title: 'Learn Coding online',
+          image: Image.asset("assets/school.png"),
+          title: 'Learn  online',
           body: 'Subscribe to Divine Coding to learn coding',
           footer: Text("@Codex Coding"),
           decoration: PageDecoration(pageColor: Colors.deepPurple)),
       PageViewModel(
-          image: Image.network("https://domaine.com/image.png", height: 175.0),
-          title: 'Learn Coding online',
+          image: Image.asset("assets/school.png"),
+          title: 'Learn  online',
           body: 'Subscribe to Divine Coding to learn coding',
           footer: Text("@Codex Coding"),
           decoration: const PageDecoration(
@@ -59,9 +60,8 @@ class OnScreenPage extends StatelessWidget {
           image: Image.network(
               "https://www.freestudy.com/wp-content/uploads/2019/11/Education-800x512.jpg?ezimgfmt=ng%3Awebp%2Fngcb1%2Frs%3Adevice%2Frscb1-1",
               height: 175.0),
-          title: 'Learn Coding online',
+          title: 'Learn  online',
           body: 'Subscribe to Divine Coding to learn coding',
-          footer: Text("@Codex Coding"),
           decoration: PageDecoration(pageColor: Colors.amber)),
     ];
   }
@@ -71,10 +71,10 @@ class OnScreenPage extends StatelessWidget {
     return Scaffold(
         body: IntroductionScreen(
       onDone: () {
-        Get.to(HomePage());
+        Get.to(Login());
       },
       onSkip: () {
-        Get.to(HomePage());
+        Get.to(Login());
       },
       pages: getPages(),
       globalBackgroundColor: Colors.white,

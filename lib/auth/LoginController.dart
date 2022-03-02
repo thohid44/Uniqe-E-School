@@ -7,14 +7,14 @@ import 'CustomService.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginController extends GetxController {
-  singIn(String email, String password) async {
+  singIn(String mobile, String password) async {
     // print(stdemail);
     // // print(stdpass);
 
     // Future<void> sendUserDataToServer() async {
 
     Map<String, dynamic> dataBody = {
-      CustomWebServices.std_email: email,
+      CustomWebServices.std_mobile: mobile,
       CustomWebServices.std_pass: password
     };
 

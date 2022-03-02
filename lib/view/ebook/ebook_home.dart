@@ -19,15 +19,7 @@ class EbookHome extends StatelessWidget {
           ),
           backgroundColor: Colors.deepOrange,
           centerTitle: true,
-          actions: [
-            IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.shopping_cart,
-                  size: 35,
-                  color: Colors.white,
-                ))
-          ],
+          actions: [],
         ),
         body: Obx(() => GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -41,14 +33,21 @@ class EbookHome extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: GestureDetector(
                     onTap: () {
-                      var id = ebookController.allEbookList[index].id;
-                      var price = ebookController.allEbookList[index].id;
-                      var name = ebookController.allEbookList[index].id;
+                      var id =
+                          ebookController.allEbookList[index].id.toString();
+                      var price =
+                          ebookController.allEbookList[index].price.toString();
+                      var name =
+                          ebookController.allEbookList[index].title.toString();
+                      var orderBook = ebookController
+                          .allEbookList[index].order_read_book
+                          .toString();
 
                       Get.to(EbookDetails(), arguments: [
                         id,
-                        price,
                         name,
+                        price,
+                        orderBook,
                       ]);
                     },
                     child: Container(

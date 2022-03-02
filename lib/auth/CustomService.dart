@@ -12,7 +12,7 @@ class CustomWebServices {
   static String lesson_api_url = "http://uniqueeschool.com";
 
   static String std_name = "name";
-  static String std_email = "email";
+  static String std_mobile = "mobile_no";
   static String std_pass = "password";
   //Course Ordersa
   static String userId = "user_id";
