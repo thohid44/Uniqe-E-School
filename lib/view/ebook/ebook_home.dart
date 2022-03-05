@@ -1,4 +1,5 @@
 import 'package:e_unique_school/controller/ebook_controller.dart';
+import 'package:e_unique_school/widget/botto_navigator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -21,6 +22,7 @@ class EbookHome extends StatelessWidget {
           centerTitle: true,
           actions: [],
         ),
+        bottomNavigationBar: BottomNavigator(),
         body: Obx(() => GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,

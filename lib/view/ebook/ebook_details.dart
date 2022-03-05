@@ -11,24 +11,22 @@ class EbookDetails extends StatefulWidget {
 }
 
 class _EbookDetailsState extends State<EbookDetails> {
-  get txnId => null;
-
   @override
   Widget build(BuildContext context) {
-    final GlobalKey<FormState> _key = GlobalKey();
+    final GlobalKey<FormState> _keys = GlobalKey();
 
-    TextEditingController username = TextEditingController();
+    TextEditingController _uname = TextEditingController();
 
-    TextEditingController mobile = TextEditingController();
-    TextEditingController txtId = TextEditingController();
-    String userId = '';
+    TextEditingController _mobile = TextEditingController();
+    TextEditingController txnid = TextEditingController();
+    String _userId = '';
     Future<void> loadUserData() async {
       SharedPreferences preferences = await SharedPreferences.getInstance();
       var mapData = json.decode(preferences.getString("sharedata")!);
       print("Student Id $mapData");
 
       setState(() {
-        userId = mapData['studentId'].toString();
+        _userId = mapData['studentId'].toString();
       });
     }
 
@@ -52,97 +50,82 @@ class _EbookDetailsState extends State<EbookDetails> {
         centerTitle: true,
         actions: [],
       ),
-      body: ListView(
-        children: [
-          const SizedBox(
-            height: 15,
-          ),
-          const SizedBox(
-            height: 12,
-          ),
-          Expanded(
-            child: Form(
-              key: _key,
-              child: Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Center(
-                  child: Column(
-                    children: [
-                      TextField(
-                        textInputAction: TextInputAction.next,
-                        controller: username,
-                        decoration: InputDecoration(
-                            labelText: "User Name",
-                            hintText: "Enter Your User Name",
-                            hintStyle: const TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.w500),
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(20))),
-                      ),
-                      const SizedBox(
-                        height: 15,
-                      ),
-                      Container(
-                        height: 55,
-                        decoration: BoxDecoration(
-                            color: Color.fromARGB(171, 255, 255, 255),
-                            borderRadius: BorderRadius.circular(30)),
-                        child: TextField(
-                          textInputAction: TextInputAction.next,
-                          controller: mobile,
-                          decoration: InputDecoration(
-                            labelText: "Bkash Payment Number",
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(20)),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 15,
-                      ),
-                      Container(
-                        height: 55,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30)),
-                        child: TextField(
-                          textInputAction: TextInputAction.done,
-                          textAlign: TextAlign.center,
-                          controller: txtId,
-                          decoration: InputDecoration(
-                              labelText: "Bkash Transaction Number",
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(20))),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 29,
-                      ),
-                      InkWell(
-                        onTap: () {
-                          sendBuyBook.cartBook(userId, username.text, price,
-                              bookId, mobile.text, txnId);
-                        },
-                        child: Container(
-                            height: 55,
-                            width: MediaQuery.of(context).size.width * .6,
-                            decoration: BoxDecoration(
-                                color: Colors.deepOrange,
-                                borderRadius: BorderRadius.circular(30)),
-                            child: const Center(
-                              child: Text("Confirm",
-                                  style: TextStyle(
-                                      fontSize: 23,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold)),
-                            )),
-                      )
-                    ],
+      body: Form(
+        key: _keys,
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Center(
+            child: Column(
+              children: [
+                TextField(
+                  controller: _uname,
+                  decoration: InputDecoration(
+                      labelText: "User Name",
+                      hintText: "Enter Your User Name",
+                      hintStyle: const TextStyle(
+                          fontSize: 18, fontWeight: FontWeight.w500),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20))),
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                Container(
+                  height: 55,
+                  decoration: BoxDecoration(
+                      color: Color.fromARGB(171, 255, 255, 255),
+                      borderRadius: BorderRadius.circular(30)),
+                  child: TextField(
+                    controller: _mobile,
+                    decoration: InputDecoration(
+                      labelText: "Bkash Payment Number",
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20)),
+                    ),
                   ),
                 ),
-              ),
+                const SizedBox(
+                  height: 15,
+                ),
+                Container(
+                  height: 55,
+                  decoration:
+                      BoxDecoration(borderRadius: BorderRadius.circular(30)),
+                  child: TextField(
+                    textAlign: TextAlign.center,
+                    controller: txnid,
+                    decoration: InputDecoration(
+                        labelText: "Bkash Transaction Number",
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20))),
+                  ),
+                ),
+                const SizedBox(
+                  height: 29,
+                ),
+                InkWell(
+                  onTap: () {
+                    sendBuyBook.cartBook(_userId, _uname.text, price, bookId,
+                        _mobile.text, txnid.text);
+                  },
+                  child: Container(
+                      height: 55,
+                      width: MediaQuery.of(context).size.width * .6,
+                      decoration: BoxDecoration(
+                          color: Colors.deepOrange,
+                          borderRadius: BorderRadius.circular(30)),
+                      child: const Center(
+                        child: Text("Confirm",
+                            style: TextStyle(
+                                fontSize: 23,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold)),
+                      )),
+                )
+              ],
             ),
           ),
-        ],
+        ),
       ),
     );
     ;

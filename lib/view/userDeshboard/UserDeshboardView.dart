@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:e_unique_school/view/Purchase_CourseView.dart';
 import 'package:e_unique_school/view/ebook/BuyBookView.dart';
+import 'package:e_unique_school/widget/botto_navigator.dart';
 import 'package:e_unique_school/widget/user_desh_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -39,6 +40,7 @@ class _UserDeshBoardViewState extends State<UserDeshBoardView> {
         title: const Text("User Deshboard"),
         centerTitle: true,
       ),
+      bottomNavigationBar: BottomNavigator(),
       body: Container(
 //padding: const EdgeInsets.all(8.0),
         margin: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
@@ -53,13 +55,15 @@ class _UserDeshBoardViewState extends State<UserDeshBoardView> {
                   arguments: studentId,
                 );
               },
-              child: UserDeshWidget(title: "Purchase Course", quantity: 2),
+              child: UserDeshWidget(
+                title: "Your Course",
+              ),
             ),
             GestureDetector(
               onTap: () {
                 Get.to(BuyBookView());
               },
-              child: UserDeshWidget(title: "Purchase PDF  ", quantity: 1),
+              child: UserDeshWidget(title: "Your EBook "),
             ),
           ],
         ),

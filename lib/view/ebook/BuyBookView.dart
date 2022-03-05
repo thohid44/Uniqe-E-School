@@ -10,7 +10,7 @@ class BuyBookView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("All video Course"),
+        title: const Text("All E Books"),
       ),
       body: Obx(
         () => ListView.builder(

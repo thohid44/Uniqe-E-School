@@ -36,6 +36,8 @@ class _CourseCartPageState extends State<CourseCartPage> {
     super.initState();
   }
 
+  final CourseListController courseController = Get.find();
+
   @override
   Widget build(BuildContext context) {
     var data = Get.arguments;
@@ -44,8 +46,6 @@ class _CourseCartPageState extends State<CourseCartPage> {
     var price = data[1];
     print(id);
     print(price);
-
-    final CourseListController courseController = Get.find();
 
     return Scaffold(
       appBar: AppBar(
@@ -114,8 +114,8 @@ class _CourseCartPageState extends State<CourseCartPage> {
                 ),
                 InkWell(
                   onTap: () {
-                    courseController.cartCourse(userId.toString(),
-                        username.text, price, id, mobile.text, txtId.text);
+                    courseController.cartCourse(userId, username.text, price,
+                        id, mobile.text, txtId.text);
                   },
                   child: Container(
                       height: 55,

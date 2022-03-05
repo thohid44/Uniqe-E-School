@@ -4,8 +4,10 @@ import 'package:e_unique_school/auth/Login.dart';
 import 'package:e_unique_school/view/ebook/ebook_details.dart';
 import 'package:e_unique_school/view/ebook/ebook_home.dart';
 import 'package:e_unique_school/view/homepage.dart';
+import 'package:e_unique_school/view/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 
 import 'view/userDeshboard/UserDeshboardView.dart';
@@ -25,7 +27,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: OnScreenPage(),
+      home: SplashScreen(),
     );
   }
 }
@@ -43,26 +45,34 @@ class OnScreenPage extends StatelessWidget {
   List<PageViewModel> getPages() {
     return [
       PageViewModel(
-          image: Image.asset("assets/school.png"),
+          image: Image.asset(
+            "assets/school.png",
+            alignment: Alignment.topCenter,
+          ),
           title: 'Learn  online',
           body: 'Subscribe to Divine Coding to learn coding',
           footer: Text("@Codex Coding"),
-          decoration: PageDecoration(pageColor: Colors.deepPurple)),
+          decoration: PageDecoration(pageColor: Colors.white)),
       PageViewModel(
           image: Image.asset("assets/school.png"),
           title: 'Learn  online',
           body: 'Subscribe to Divine Coding to learn coding',
-          footer: Text("@Codex Coding"),
-          decoration: const PageDecoration(
-            pageColor: Colors.cyan,
-          )),
+          decoration: PageDecoration(
+              pageColor: Colors.cyan,
+              titleTextStyle: GoogleFonts.robotoMono(
+                fontSize: 20,
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ))),
       PageViewModel(
           image: Image.network(
               "https://www.freestudy.com/wp-content/uploads/2019/11/Education-800x512.jpg?ezimgfmt=ng%3Awebp%2Fngcb1%2Frs%3Adevice%2Frscb1-1",
               height: 175.0),
           title: 'Learn  online',
           body: 'Subscribe to Divine Coding to learn coding',
-          decoration: PageDecoration(pageColor: Colors.amber)),
+          decoration: PageDecoration(
+            pageColor: Colors.amber,
+          )),
     ];
   }
 
