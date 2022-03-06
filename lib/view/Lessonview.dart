@@ -17,6 +17,12 @@ class LessonView extends StatelessWidget {
     print(lesControoler.lessons.length);
     return SafeArea(
       child: Scaffold(
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Get.back();
+          },
+          child: Icon(Icons.arrow_back_ios_new_outlined),
+        ),
         body: Obx(
           () => ListView.builder(
               itemCount: lesControoler.lessons.length,

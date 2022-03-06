@@ -16,12 +16,6 @@ class GroupController extends GetxController {
   }
 
   @override
-  void dispose() {
-    // TODO: implement
-    groupList.clear();
-    super.dispose();
-  }
-
   var client = http.Client();
   Future<List<GroupModel>> fetchGroup(rec) async {
     groupList.clear();

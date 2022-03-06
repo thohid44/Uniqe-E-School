@@ -78,14 +78,16 @@ class CourseListController extends GetxController {
         Uri.parse(CustomWebServices.course_order_api_url),
         body: dataToSend);
 
-    Get.snackbar(
-      "Buy Course",
-      "Success",
-      duration: Duration(seconds: 2),
-      backgroundColor: Colors.black,
-      colorText: Colors.white,
-    );
-    Get.to(HomePage());
+    if (response.statusCode == 200) {
+      Get.snackbar(
+        "Buy Course",
+        "Successfully",
+        duration: Duration(seconds: 2),
+        backgroundColor: Colors.black,
+        colorText: Colors.white,
+      );
+      Get.to(HomePage());
+    }
   }
 }
 

@@ -16,13 +16,8 @@ class PurchaseCourseController extends GetxController {
     super.onInit();
   }
 
-  void dispose() {
-    purchase_courses_list;
-
-    super.dispose();
-  }
-
   Future<List<CoursePurchaseModel>> fetchPurchaseCourse(id) async {
+    purchase_courses_list.clear();
     var response = await purchase_Client
         .get(Uri.https(coursebaseUrl, "purchase_course/$id"));
     //  print(response);

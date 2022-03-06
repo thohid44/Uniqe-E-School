@@ -4,11 +4,17 @@ class CustomWebServices {
   static var apiClient = http.Client();
 
   static String signup_api_url = "http://uniqueeschool.com/api/studentRegApi";
+
   static String signin_api_url = "http://uniqueeschool.com/api/studentLoginApi";
+
   static String all_book_api_url = "https://uniqueeschool.com/books_data/";
+
   static String course_order_api_url =
       "http://uniqueeschool.com/api/courseOrder";
+
+  static String book_order_api_url = "http://app.chadahatti.org/api/bookOrder";
   static String course_api_url = "http://uniqueeschool.com/api/list";
+
   static String lesson_api_url = "http://uniqueeschool.com";
 
   static String std_name = "name";

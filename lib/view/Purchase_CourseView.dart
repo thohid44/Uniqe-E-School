@@ -26,11 +26,6 @@ class PurchaseCourseView extends StatelessWidget {
                           .toString());
                 },
                 title: Text(
-                  userCourse.purchase_courses_list[index].course_id,
-                  style: const TextStyle(
-                      fontSize: 22, fontWeight: FontWeight.bold),
-                ),
-                subtitle: Text(
                   userCourse.purchase_courses_list[index].course_name,
                   style: const TextStyle(
                       fontSize: 22, fontWeight: FontWeight.bold),

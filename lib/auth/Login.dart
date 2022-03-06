@@ -38,15 +38,18 @@ class Login extends StatelessWidget {
                   children: [
                     _textinput(
                         controller: mobile,
+                        inputAction: TextInputAction.next,
                         userErrorText: "Mobile number is required!",
                         hint: "Mobile Number",
-                        icon: Icon(Icons.mail, color: Colors.purple)),
+                        icon: Icon(Icons.phone_android_outlined,
+                            color: Colors.purple)),
                     const SizedBox(
                       height: 14,
                     ),
                     _textinput(
                         controller: password,
                         userErrorText: "Password is required!",
+                        inputAction: TextInputAction.done,
                         hint: " Password",
                         icon: Icon(Icons.vpn_key, color: Colors.purple)),
                     SizedBox(
@@ -115,13 +118,14 @@ class Login extends StatelessWidget {
   }
 }
 
-Widget _textinput({controller, hint, icon, userErrorText}) {
+Widget _textinput({controller, hint, icon, inputAction, userErrorText}) {
   return Container(
     margin: const EdgeInsets.symmetric(horizontal: 10),
     decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.all(Radius.circular(20))),
     child: TextFormField(
+      textInputAction: inputAction,
       validator: (value) {
         if (value!.isEmpty) {
           return userErrorText;

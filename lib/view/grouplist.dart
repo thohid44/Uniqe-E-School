@@ -15,7 +15,7 @@ class GroupListPage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-            backgroundColor: Colors.purple,
+            backgroundColor: Color(0xFF009688),
             title: const Text(" Group List"),
             leading: IconButton(
                 icon: Icon(Icons.arrow_back_ios_new),
@@ -24,36 +24,34 @@ class GroupListPage extends StatelessWidget {
           () => Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: ListView.builder(
-              shrinkWrap: true,
-              itemCount: groupcontroller.groupList.length,
-              itemBuilder: (context, index) {
-                if (ConnectionState.done == ConnectionState.waiting) {
-                  return Center(
-                      child: CircularProgressIndicator(
-                    color: Colors.red,
-                  ));
-                }
-
-                return GestureDetector(
-                  onTap: () {
-                    Get.to(SubjectList(),
-                        arguments: groupcontroller.groupList[index].id);
-                  },
-                  child: Card(
-                      elevation: 5,
-                      child: Container(
-                        height: MediaQuery.of(context).size.height * .1,
-                        child: Center(
-                          child: Text(
-                            groupcontroller.groupList[index].group,
-                            style: GoogleFonts.pacifico(
-                                fontSize: 18, fontWeight: FontWeight.w500),
+                shrinkWrap: true,
+                itemCount: groupcontroller.groupList.length,
+                itemBuilder: (context, index) {
+                  if (groupcontroller.groupList.isEmpty) {
+                    return Center(
+                        child: CircularProgressIndicator(
+                      color: Colors.red,
+                    ));
+                  }
+                  return GestureDetector(
+                    onTap: () {
+                      Get.to(SubjectList(),
+                          arguments: groupcontroller.groupList[index].id);
+                    },
+                    child: Card(
+                        elevation: 5,
+                        child: Container(
+                          height: MediaQuery.of(context).size.height * .1,
+                          child: Center(
+                            child: Text(
+                              groupcontroller.groupList[index].group,
+                              style: GoogleFonts.pacifico(
+                                  fontSize: 18, fontWeight: FontWeight.w500),
+                            ),
                           ),
-                        ),
-                      )),
-                );
-              },
-            ),
+                        )),
+                  );
+                }),
           ),
         ),
       ),

@@ -15,7 +15,7 @@ class SubjectList extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           elevation: 0,
-          backgroundColor: Color(0xA400BBD4),
+          backgroundColor: Color(0xFF009688),
           title: const Text("Subject List"),
         ),
         body: Obx(

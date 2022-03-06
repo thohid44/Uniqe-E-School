@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:e_unique_school/view/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
@@ -75,7 +76,7 @@ class EbookController extends GetxController {
     };
     var dataToSend = json.encode(bookData);
     var response = await http.post(
-        Uri.parse(CustomWebServices.course_order_api_url),
+        Uri.parse(CustomWebServices.book_order_api_url),
         body: dataToSend);
 
     Get.snackbar(
@@ -85,6 +86,7 @@ class EbookController extends GetxController {
       backgroundColor: Colors.black,
       colorText: Colors.white,
     );
+    Get.to(HomePage());
   }
 }
 
