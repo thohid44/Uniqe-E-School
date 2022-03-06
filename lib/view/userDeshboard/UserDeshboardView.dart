@@ -61,7 +61,7 @@ class _UserDeshBoardViewState extends State<UserDeshBoardView> {
             ),
             GestureDetector(
               onTap: () {
-                Get.to(BuyBookView());
+                Get.to(BuyBookView(), arguments: studentId);
               },
               child: UserDeshWidget(title: "Your EBook "),
             ),

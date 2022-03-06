@@ -13,8 +13,6 @@ class UserEbookController extends GetxController {
   DateTime now = DateTime.now();
 
   onInit() {
-    ebookList;
-    fetchCourseList();
     super.onInit();
   }
 
@@ -22,9 +20,9 @@ class UserEbookController extends GetxController {
     super.dispose();
   }
 
-  Future<List<UserEbookModel>> fetchCourseList() async {
+  Future<List<UserEbookModel>> fetchBuyBookList(stdId) async {
     var response =
-        await buyCourse.get(Uri.https(eBookbuyUrl, 'purchase_book/1'));
+        await buyCourse.get(Uri.https(eBookbuyUrl, 'purchase_book/$stdId'));
     var courseListData = jsonDecode(response.body.toString());
 //print(response.body);
 //print(courseListData);

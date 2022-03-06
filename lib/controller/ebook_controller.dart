@@ -19,6 +19,7 @@ class EbookController extends GetxController {
   // Initaization
 
   void onInit() {
+    allEbookList;
     fetchAllEbooks();
     super.onInit();
   }
@@ -27,6 +28,7 @@ class EbookController extends GetxController {
 // Fetch All Books From Api
 
   Future<List<AllBookModel>> fetchAllEbooks() async {
+    allEbookList.clear();
     var response =
         await bookClient.get(Uri.parse(CustomWebServices.all_book_api_url));
 

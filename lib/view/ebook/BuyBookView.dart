@@ -8,9 +8,13 @@ class BuyBookView extends StatelessWidget {
   final UserEbookController bookController = Get.put(UserEbookController());
   @override
   Widget build(BuildContext context) {
+    var stdId = Get.arguments;
+    bookController.fetchBuyBookList(stdId);
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color(0xFF009688),
         title: const Text("All E Books"),
+        centerTitle: true,
       ),
       body: Obx(
         () => ListView.builder(
@@ -20,6 +24,8 @@ class BuyBookView extends StatelessWidget {
                 onTap: () {
                   Get.to(ReadBook(),
                       arguments: bookController.ebookList[index].orderReadBook);
+                  // print(
+                  //     bookController.ebookList[index].orderReadBook.toString());
                 },
                 child: Container(
                     padding: EdgeInsets.all(12),
