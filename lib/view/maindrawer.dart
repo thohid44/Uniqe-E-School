@@ -1,3 +1,4 @@
+import 'package:e_unique_school/auth/Login.dart';
 import 'package:e_unique_school/view/homepage.dart';
 import 'package:e_unique_school/view/userDeshboard/UserDeshboardView.dart';
 import 'package:flutter/material.dart';
@@ -100,6 +101,19 @@ class _MainDrawerState extends State<MainDrawer> {
                       color: Colors.white,
                     ),
                     title: Text("Contact Us",
+                        style: GoogleFonts.lato(
+                            color: Colors.white, fontWeight: FontWeight.w600)),
+                  ),
+                  Divider(height: 0),
+                  ListTile(
+                    onTap: () {
+                      Get.to(Login());
+                    },
+                    leading: Icon(
+                      Icons.logout_outlined,
+                      color: Colors.white,
+                    ),
+                    title: Text("Logout",
                         style: GoogleFonts.lato(
                             color: Colors.white, fontWeight: FontWeight.w600)),
                   ),
