@@ -19,13 +19,8 @@ class EbookController extends GetxController {
   // Initaization
 
   void onInit() {
-    allEbookList;
     fetchAllEbooks();
     super.onInit();
-  }
-
-  void dispose() {
-    dispose();
   }
 
   var bookClient = http.Client();

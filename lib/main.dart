@@ -1,16 +1,12 @@
 import 'dart:io';
 
 import 'package:e_unique_school/auth/Login.dart';
-import 'package:e_unique_school/view/ebook/ebook_details.dart';
-import 'package:e_unique_school/view/ebook/ebook_home.dart';
-import 'package:e_unique_school/view/homepage.dart';
+
 import 'package:e_unique_school/view/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:introduction_screen/introduction_screen.dart';
-
-import 'view/userDeshboard/UserDeshboardView.dart';
 
 void main() {
   runApp(MyApp());

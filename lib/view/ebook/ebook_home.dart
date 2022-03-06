@@ -1,9 +1,8 @@
 import 'package:e_unique_school/controller/ebook_controller.dart';
+import 'package:e_unique_school/view/ebook/BookCartPage.dart';
 import 'package:e_unique_school/widget/botto_navigator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import 'ebook_details.dart';
 
 class EbookHome extends StatelessWidget {
   const EbookHome({Key? key}) : super(key: key);
@@ -20,7 +19,6 @@ class EbookHome extends StatelessWidget {
           ),
           backgroundColor: Colors.deepOrange,
           centerTitle: true,
-          actions: [],
         ),
         bottomNavigationBar: BottomNavigator(),
         body: Obx(() => GridView.builder(
@@ -39,17 +37,10 @@ class EbookHome extends StatelessWidget {
                           ebookController.allEbookList[index].id.toString();
                       var price =
                           ebookController.allEbookList[index].price.toString();
-                      var name =
-                          ebookController.allEbookList[index].title.toString();
-                      var orderBook = ebookController
-                          .allEbookList[index].order_read_book
-                          .toString();
 
-                      Get.to(EbookDetails(), arguments: [
+                      Get.to(BookCartPage(), arguments: [
                         id,
-                        name,
                         price,
-                        orderBook,
                       ]);
                     },
                     child: Container(

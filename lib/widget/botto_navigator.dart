@@ -11,11 +11,14 @@ class BottomNavigator extends StatelessWidget {
     return Card(
       elevation: 5,
       child: Container(
-        height: 75,
+        height: 55,
+        width:MediaQuery.of(context).size.width, 
         decoration: BoxDecoration(
           color: AppColors.primaryColor,
-          borderRadius: const BorderRadius.only(
-              topRight: Radius.circular(40.0), topLeft: Radius.circular(40.0)),
+          // borderRadius: const BorderRadius.only(
+          //     topRight: Radius.circular(40.0), topLeft: Radius.circular(40.0),
+              
+            //  ),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -27,7 +30,7 @@ class BottomNavigator extends StatelessWidget {
                 },
                 icon: Icon(
                   Icons.home,
-                  color: AppColors.whiteColor,
+                  color: Colors.white,
                   size: 35,
                 )),
             const SizedBox(),
